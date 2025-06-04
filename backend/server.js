@@ -6,9 +6,15 @@ const userRouter = require("./src/routes/user.route")
 const connectDB = require("./db")
 const cookieParser = require("cookie-parser")
 
-// app.get('/', async (req, res) => {
-//     res.status(200).json("this is a test")
-// })
+const cors = require("cors")
+
+const corsOptions = {
+    origin: process.env.frontend_link,
+    method: "GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS",
+    credential : true
+}
+
+app.use(cors(corsOptions))
 
 app.use(express.json()) //express.json({limit: "30kb"})
 app.use(express.urlencoded({extended: true}))

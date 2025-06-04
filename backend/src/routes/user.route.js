@@ -13,4 +13,6 @@ router.route("/signin").post(userController.signin_controller)
 
 router.route("/logout").post(verifyToken, userController.logout_user)
 
+router.route("/loggedin_user").get(verifyToken, userController.user_data)
+
 module.exports = router;

@@ -90,4 +90,8 @@ const logout_user = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, {}, "Logout successful"));
 });
 
-module.exports = {signin_controller, signup_controller, logout_user}
+const user_data = asyncHandler(async (req, res) => {
+     res.status(200).json(new ApiResponse(200, req.user, "logged in user date"))
+})
+
+module.exports = {signin_controller, signup_controller, logout_user, user_data}
